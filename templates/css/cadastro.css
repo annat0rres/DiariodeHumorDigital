@@ -1,0 +1,22 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    height: 100vh;
+    width: 100vw;
+    background-image: linear-gradient(#78B5D4,white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.title_cadastro {
+    text-align: center;
+}
+.area_cadastro {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 50px;
+
+}

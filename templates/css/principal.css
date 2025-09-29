@@ -1,0 +1,45 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(#78B5D4, white);
+}
+
+
+#linha1, #linha2, #linha3, #linha4, #linha5{
+    width: 1100px;
+    height: 120px;
+    display: flex;
+    gap: 2px;
+}
+
+#linha1 > div, #linha2 > div, #linha3 > div, #linha4 > div, #linha5 > div{
+    width: 157px;
+    border: 1px solid #8894b7;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dianum{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #8894b7;
+    margin: 5px;
+}
+
+.dianum h4{
+    padding-left: 10px;
+    padding-top: 8px;
+}
+
+.nomedia{
+    margin-left: 3px;
+}

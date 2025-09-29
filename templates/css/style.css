@@ -60,4 +60,24 @@ body{
     border-radius: 20px;
 }
 
-/* pagina principal */
+/* página principal */
+#tela{
+    width: 1100px;
+    height: 600px;
+    border: 5px solid white;
+}
+
+#calendario{
+    width: 1100px;
+    height: 600px;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-flow: column wrap;
+    gap: 5px;
+}
+
+#calendario > #linha1, #linha2, #linha3{
+    width: 1100px;
+    height: 200px;
+    background-color: pink;
+}

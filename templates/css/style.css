@@ -2,17 +2,62 @@
     padding: 0;
     margin: 0;
 }
-.nav_bar {
-    background-color: orangered;
+
+
+/* inicio */
+body{
+    width: 100vw;
     height: 100vh;
-    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #78B5D4;
+}
+
+#hero{
+    width: 700px;
+    height: 500px;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-start;
+    justify-content: center;
+    border: 5px solid yellow;
+}
+
+#logomarca{
+    width: 700px;
+    height: 280px;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
-.lista_nav {
-    color:white;
-    font-size: 20px;
-    list-style: none;
 
+#logo{
+    width: 400px;
+    height: 280px;
+    margin-top: 3rem;
 }
+
+#botoes{
+    width: 700px;
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+#cadastro{
+    width: 100px;
+    height: 50px;
+    background-color: #1E424E;
+    border-radius: 20px;
+}
+
+#login{
+    width: 100px;
+    height: 50px;
+    background-color: #1E424E;
+    border-radius: 20px;
+}
+
+/* pagina principal */

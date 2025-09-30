@@ -12,14 +12,17 @@
             <h1>Registre-se já</h1>
             <h2>Coloque suas informações abaixo...</h2>
         </div>
-        <div class="area_cadastro">
-            <input type="POST" class="nome" placeholder="Digite aqui seu nome..."></input>
-            <input type="POST" class="email" placeholder="Digite aqui seu email..."></input>
-            <input type="POST" class="senha" placeholder="Digite aqui sua senha..." minlength="8"></input>
-            <input type="POST" class="confirma_senha" placeholder="Confirme sua senha..."></input>
-            <input type="button" class="button_cadastrar" value="Cadastrar"></input>
-
-        </div>
+        <form method="POST" action="/cadastro">
+            <label for="username">Usuário:</label>
+            <input type="text" id="username" name="username" required>
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <button type="submit">Cadastrar</button>
     </div>
 </body>
 </html>

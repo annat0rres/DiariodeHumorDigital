@@ -72,19 +72,21 @@ body{
     gap: 15px;
 }
 
-.button_cadastro, .button_login {
+.link_button_cadastro, .link_button_login {
     width: 100px;
     height: 50px;
     background-color: #40b4db;
     border-radius: 20px;
-    justify-items: center;
+    text-decoration: none;
+    line-height: 50px;
+    text-align: center;
     color: #fff7ae;
     cursor: pointer;
     border: 2px solid #FFF173;
     outline: none;
     transition: background-color 0.2s ;
 }
-.button_cadastro:hover,.button_login:hover {
+.link_button_cadastro:hover,.link_button_login:hover {
     background-image: none;
     background-color: #FFF173;
     border-color: #C7B157;

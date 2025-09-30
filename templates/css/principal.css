@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins';
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-image: linear-gradient(#78B5D4, white);
+}
+
+.bem-vindo{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    gap: 10px;
+    margin-left: 408px;
+}
+
+#tela{
+    width: 1100px;
+    height: 602px;
+    background-color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+#calendario >{
+    width: 1100px;
+    height: 602px;
+    border-radius: 10px;
+}
+
+
+#linha1, #linha2, #linha3, #linha4, #linha5{
+    width: 1100px;
+    height: 120px;
+    display: flex;
+
+}
+
+#linha1 > div, #linha2 > div, #linha3 > div, #linha4 > div, #linha5 > div{
+    width: 157px;
+    border: 1px solid #78B5D4;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dianum, .dianumA,.dianumP{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #78B5D4;
+    margin: 5px;
+}
+
+.dianumA, .dianumP{
+    background-color: grey;
+}
+
+.dianum h4, .dianumA h4, .dianumP h4{
+    padding-left: 10px;
+    padding-top: 8px;
+}
+
+.nomedia, .nomediaA, .nomediaP{
+    margin-left: 3px;
+}
+
+.nomediaA, .nomediaP{
+    color: grey;
+}

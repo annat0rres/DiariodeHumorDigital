@@ -31,13 +31,13 @@ body{
     position: absolute;
     margin-top: -200px;
     margin-left: -100px;
-    animation: cloud_movement 6s ease-out infinite;
+    animation: cloud_movement 6s ease-in-out infinite;
 }
 
 .img_login2 {
     position: absolute;
     margin-left: 450px;
-    animation: cloud_movement 6s ease-out infinite;
+    animation: cloud_movement 6s ease-in-out infinite;
 }
 
 #hero{

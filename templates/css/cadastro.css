@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lilita+One&family=M+PLUS+Rounded+1c&display=swap');
+
 * {
     padding: 0;
     margin: 0;
@@ -10,6 +12,10 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: aparecer 0.8s ease-out forwards;
+    overflow: hidden;
 }
 .title_cadastro {
     color: #FFF173;
@@ -34,6 +40,14 @@ body {
     justify-content: space-around;
     align-items: center;
     font-size: 18px;
+    font-family: sans-serif;
+}
+.form_cadastro input {
+    height: 30px;
+    color:#40b4db;
+    border: solid 1px #FFF173;
+    outline-color: #40b4db;
+    border-radius: 5px;
 }
 .cadastrar_button {
     background-color: #40b4db;
@@ -53,4 +67,20 @@ body {
     background-color: #FFF173;
     border-color: #C7B157;
     color: #7e6e2e;
+}
+
+h1 {
+    font-size: 50px;
+    font-family: "M PLUS Rounded 1c";
+}
+
+h2 {
+    font-family: sans-serif;
+}
+
+@keyframes aparecer {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
 }

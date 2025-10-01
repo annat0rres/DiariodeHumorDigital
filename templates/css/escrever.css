@@ -13,11 +13,12 @@
     /* background-color: #78B5D4; */
     display: flex;
     justify-content: center;
+    transition: background-image 0.2s ;
    
 }
 
 #caixa{
-    margin-top: 6rem;
+    margin-top: 4rem;
     width: 708px;
     height: 545px;
     display: flex;

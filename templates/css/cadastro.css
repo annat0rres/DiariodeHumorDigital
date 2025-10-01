@@ -55,7 +55,6 @@ body {
     justify-content: space-around;
     align-items: center;
     font-size: 18px;
-    font-family: sans-serif;
 }
 .form_cadastro input {
     height: 30px;
@@ -93,7 +92,6 @@ body {
 
 h1 {
     font-size: 30px;
-    font-family: "M PLUS Rounded 1c";
 }
 
 .cad_h1 {
@@ -102,7 +100,6 @@ h1 {
 
 h2 {
     font-size: 15px;
-    font-family: sans-serif;
 }
 
 @keyframes aparecer {
@@ -143,7 +140,6 @@ h2 {
     border: 2px solid #FFF173;
     outline: none;
     transition: background-color 0.2s ;
-    font-family: sans-serif;
 }
 .link_button_cad:hover {
     background-color: #FFF173;

@@ -92,7 +92,7 @@ body{
     border: 2px solid #FFF173;
     outline: none;
     transition: background-color 0.2s ;
-    font-family: sans-serif;
+    margin-right: 1rem;
 }
 .link_button_cadastro:hover,.link_button_login:hover {
     background-image: none;
@@ -105,4 +105,3 @@ body{
 @keyframes fade-in {
     to { opacity: 1; }
 }
-/* pagina principal */

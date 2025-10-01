@@ -18,6 +18,10 @@ body {
     overflow: hidden;
 }
 .title_cadastro {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     color: #FFF173;
     text-shadow: 1px 1px 0 #C7B157, 
       -1px 1px 0 #C7B157, 
@@ -26,12 +30,21 @@ body {
 
 }
 .area_geral_cadastro {
+    display: flex;
+    background-color: white;
+    height: 500px;
+    width: 900px;
     color: #FFF173;
     text-shadow: 1px 1px 0 #C7B157, 
       -1px 1px 0 #C7B157, 
       1px -1px 0 #C7B157, 
       -1px -1px 0 #C7B157; 
 
+}
+.parte_azul_cad {
+    background-color: #40b4db;
+    width: 300px;
+    height: 500px;
 }
 .form_cadastro {
     height: 300px;

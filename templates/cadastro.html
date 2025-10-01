@@ -8,25 +8,30 @@
 </head>
 <body>
     <div class="area_geral_cadastro">
-        <div class="title_cadastro">
-            <h1>Registre-se já</h1>
-            <h2>Coloque suas informações abaixo...</h2>
+        <div class="parte_azul_cad">
+            <div class="title_cadastro">
+                <h1>Registre-se já</h1>
+                <h2>Coloque suas informações ao lado</h2>
+            </div>
+
         </div>
-        <form method="POST" action="/cadastro" class="form_cadastro">
-            <label for="name">Nome:</label>
-            <input type="text" id="name" name="name" required>
+        <div class="central_cad">
+            <form method="POST" action="/cadastro" class="form_cadastro">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
 
-            <label for="username">Usuário:</label>
-            <input type="text" id="username" name="username" required>
+                <label for="username">Usuário:</label>
+                <input type="text" id="username" name="username" required>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
 
-            <label for="password">Senha:</label>
-            <input type="password" id="password" name="password" required>
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required>
 
-            <button class="cadastrar_button" type="submit">Cadastrar</button>
-        </form>
+                <button class="cadastrar_button" type="submit">Cadastrar</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>

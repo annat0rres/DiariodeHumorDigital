@@ -33,7 +33,7 @@ body {
     display: flex;
     background-color: white;
     height: 500px;
-    width: 900px;
+    width: 700px;
     color: #FFF173;
     text-shadow: 1px 1px 0 #C7B157, 
       -1px 1px 0 #C7B157, 
@@ -47,7 +47,7 @@ body {
     height: 500px;
 }
 .form_cadastro {
-    height: 300px;
+    height: 350px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -83,11 +83,16 @@ body {
 }
 
 h1 {
-    font-size: 50px;
+    font-size: 30px;
     font-family: "M PLUS Rounded 1c";
 }
 
+.cad_h1 {
+    font-size: 40px;
+}
+
 h2 {
+    font-size: 15px;
     font-family: sans-serif;
 }
 
@@ -96,4 +101,43 @@ h2 {
       opacity: 1;
       transform: translateY(0);
     }
+}
+
+.central_cad {
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#botao_volta_cad {
+    width: 300px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+
+.link_button_cad {
+    text-shadow: none;
+    width: 100px;
+    height: 35px;
+    background-color: #40b4db;
+    border-radius: 10px;
+    text-decoration: none;
+    line-height: 35px;
+    text-align: center;
+    color: #fff7ae;
+    cursor: pointer;
+    border: 2px solid #FFF173;
+    outline: none;
+    transition: background-color 0.2s ;
+    font-family: sans-serif;
+}
+.link_button_cad:hover {
+    background-color: #FFF173;
+    border-color: #C7B157;
+    color:#7e6e2e;
 }

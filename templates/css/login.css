@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lilita+One&family=M+PLUS+Rounded+1c&display=swap');
-/*Lilita One, Bebas Neue, M PLUS Rounded 1c*/
 
 * {
     padding: 0;
@@ -17,10 +16,12 @@ body {
     transform: translateY(20px);
     animation: aparecer 0.8s ease-out forwards;
     overflow: hidden;
-
 }
-
 .title_login {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     color: #FFF173;
     text-shadow: 1px 1px 0 #C7B157, 
       -1px 1px 0 #C7B157, 
@@ -29,6 +30,10 @@ body {
 
 }
 .area_geral_login {
+    display: flex;
+    background-color: white;
+    height: 400px;
+    width: 700px;
     color: #FFF173;
     text-shadow: 1px 1px 0 #C7B157, 
       -1px 1px 0 #C7B157, 
@@ -36,8 +41,13 @@ body {
       -1px -1px 0 #C7B157; 
 
 }
+.parte_azul_log {
+    background-color: #40b4db;
+    width: 300px;
+    height: 400px;
+}
 .form_login {
-    height: 180px;
+    height: 250px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -73,10 +83,16 @@ body {
 }
 
 h1 {
-    font-size: 50px;
+    font-size: 30px;
     font-family: "M PLUS Rounded 1c";
 }
+
+.log_h1 {
+    font-size: 40px;
+}
+
 h2 {
+    font-size: 15px;
     font-family: sans-serif;
 }
 
@@ -85,4 +101,43 @@ h2 {
       opacity: 1;
       transform: translateY(0);
     }
+}
+
+.central_log {
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#botao_volta_log {
+    width: 300px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+
+.link_button_log {
+    text-shadow: none;
+    width: 100px;
+    height: 35px;
+    background-color: #40b4db;
+    border-radius: 10px;
+    text-decoration: none;
+    line-height: 35px;
+    text-align: center;
+    color: #fff7ae;
+    cursor: pointer;
+    border: 2px solid #FFF173;
+    outline: none;
+    transition: background-color 0.2s ;
+    font-family: sans-serif;
+}
+.link_button_log:hover {
+    background-color: #FFF173;
+    border-color: #C7B157;
+    color:#7e6e2e;
 }

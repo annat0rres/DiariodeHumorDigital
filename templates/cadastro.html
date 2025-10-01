@@ -10,13 +10,19 @@
     <div class="area_geral_cadastro">
         <div class="parte_azul_cad">
             <div class="title_cadastro">
-                <h1>Registre-se já</h1>
-                <h2>Coloque suas informações ao lado</h2>
+                <h1>Seja bem-vindo!</h1>
+                <h2>Clique abaixo para voltar</h2>
+                <br>
+                <div id="botao_volta_cad">
+                    <a href="inicio.html" class="link_button_cad">Voltar</a>
+                </div>
             </div>
 
         </div>
         <div class="central_cad">
             <form method="POST" action="/cadastro" class="form_cadastro">
+                <h1 class="cad_h1">Cadastro</h1>
+                <br>
                 <label for="name">Nome:</label>
                 <input type="text" id="name" name="name" required>
 
@@ -28,6 +34,7 @@
 
                 <label for="password">Senha:</label>
                 <input type="password" id="password" name="password" required>
+                <br>
 
                 <button class="cadastrar_button" type="submit">Cadastrar</button>
             </form>

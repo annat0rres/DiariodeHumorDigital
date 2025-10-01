@@ -58,9 +58,16 @@ body {
 .form_cadastro input {
     height: 30px;
     color:#40b4db;
-    border: solid 1px #FFF173;
+    border: solid 1px #78B5D4;
     outline-color: #40b4db;
     border-radius: 5px;
+}
+.form_cadastro label {
+    color:#40b4db;
+    text-shadow: 1px 1px 0 #a4e8ff, 
+      -1px 1px 0 #a4e8ff, 
+      1px -1px 0 #a4e8ff, 
+      -1px -1px 0 #a4e8ff; 
 }
 .cadastrar_button {
     background-color: #40b4db;

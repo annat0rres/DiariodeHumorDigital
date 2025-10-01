@@ -9,4 +9,49 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
+}
+
+.title_login {
+    color: #FFF173;
+    text-shadow: 1px 1px 0 #C7B157, 
+      -1px 1px 0 #C7B157, 
+      1px -1px 0 #C7B157, 
+      -1px -1px 0 #C7B157; 
+
+}
+.area_geral_login {
+    color: #FFF173;
+    text-shadow: 1px 1px 0 #C7B157, 
+      -1px 1px 0 #C7B157, 
+      1px -1px 0 #C7B157, 
+      -1px -1px 0 #C7B157; 
+
+}
+.form_login {
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 18px;
+}
+.logar_button {
+    background-color: #40b4db;
+    border: 2px solid #FFF173;
+    color: #FFF173;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background-color 0.2s ;
+}
+.logar_button:hover {
+    background-image: none;
+    background-color: #FFF173;
+    border-color: #C7B157;
+    color: #7e6e2e;
 }

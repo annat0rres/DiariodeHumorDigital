@@ -193,24 +193,25 @@ keyframes aparecer {
     font-weight: bold;
     padding: 5px;
     background-color: #78B5D4;
-    color:#FFF173;
-    text-shadow:
+    color: #fff7ae;
+    border: 2px solid #FFF173;
+    /* text-shadow:
         1px 1px 0 #C7B157, 
         -1px 1px 0 #C7B157, 
         1px -1px 0 #C7B157, 
-        -1px -1px 0 #C7B157; 
+        -1px -1px 0 #C7B157;  */
     text-align: center;
     font-size: 16px;
 }
 
 #btnEscrever > #write{
     color: inherit;   
-    display: block;         /* se comportar como div */
-    text-decoration: none;  /* tira o sublinhado */
-    cursor: pointer;   
-}
-
-
-@keyframes fade-in {
-    to { opacity: 1; }
+    display: block;        
+    text-decoration: none;
+    cursor: pointer;
+    text-shadow:
+        1px 1px 0 #C7B157, 
+        -1px 1px 0 #C7B157, 
+        1px -1px 0 #C7B157, 
+        -1px -1px 0 #C7B157;    
 }

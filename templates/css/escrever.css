@@ -10,7 +10,6 @@
     width: 100vw;
     height: 100vh;
     background-image: linear-gradient(#78B5D4,white);
-    /* background-color: #78B5D4; */
     display: flex;
     justify-content: center;
     transition: background-image 0.2s ;
@@ -20,7 +19,7 @@
 #caixa{
     margin-top: 4rem;
     width: 708px;
-    height: 545px;
+    height: 610px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -43,16 +42,46 @@
 }
 
 textarea {
-    text-align: justify;
+    width: 600px;
+    height: 500px;
+    text-align: left;
     padding: 5px;
   border: none;
   outline: none;
 }
 
-#enviar{
+#botoesPagEsc{
     display:flex;
     align-items: center;
+    justify-content: center;
     margin-top: 2rem;
     width: 600px;
-    height: 100px;
+    height: 50px;
 }
+
+#botoesPagEsc div{
+    margin: 15px;
+    padding: 10px;
+    border-radius: 20px;
+    margin-right: 1rem;
+    background-color: #FFF173;
+    border: 2px solid #C7B157;
+    color: #7e6e2e;
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+
+#VoltarPrincipal a{
+    color: inherit;   
+    text-decoration: none;
+    cursor: pointer; 
+}
+
+
+#botoesPagEsc div:hover{
+    background-color: #40b4db;  
+    color: #fff7ae;
+    border: 2px solid #FFF173;
+    outline: none;
+}
+ 

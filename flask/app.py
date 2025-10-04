@@ -5,7 +5,7 @@ import mysql.connector as connection
 app = Flask (__name__)
 
 @app.route ("/")
-def conexão ():
+def conexao ():
     cnx = connection.MySQLConnection (
         user = "root",
         password = "gilovers@25",
@@ -17,7 +17,7 @@ def conexão ():
     cursor.execute ("SELECT nome, user, email FROM usuarios")
     resultado = cursor.fetchall ()
 
-    return render_template (banco = resultado)
+    return render_template ("cadastro.html", banco = resultado)
 
 @app.route ("/cadastro")
 def cadastro ():
@@ -46,7 +46,7 @@ def salvar ():
     cursor.close ()
     cnx.close ()
 
-    return redirect (url_for ("conexão"))
+    return redirect (url_for ("conexao"))
 
 if __name__ == "__main__":
     app.run (debug = True)

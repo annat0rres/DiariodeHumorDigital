@@ -26,9 +26,9 @@ DROP TABLE IF EXISTS `login`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `login` (
   `userUsuarios` varchar(30) NOT NULL,
-  `senha` varchar(8) NOT NULL,
-  PRIMARY KEY (`userUsuarios`,`senha`),
-  CONSTRAINT `userUsuarios` FOREIGN KEY (`userUsuarios`) REFERENCES `usuarios` (`user`)
+  `password` varchar(8) NOT NULL,
+  PRIMARY KEY (`userUsuarios`,`password`),
+  CONSTRAINT `userUsuarios` FOREIGN KEY (`userUsuarios`) REFERENCES `usuarios` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -49,11 +49,11 @@ DROP TABLE IF EXISTS `usuarios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuarios` (
-  `nome` varchar(45) DEFAULT NULL,
-  `user` varchar(30) NOT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `username` varchar(30) NOT NULL,
   `email` varchar(45) DEFAULT NULL,
-  `senha` varchar(8) DEFAULT NULL,
-  PRIMARY KEY (`user`)
+  `password` varchar(8) DEFAULT NULL,
+  PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

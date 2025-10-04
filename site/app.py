@@ -6,19 +6,8 @@ app = Flask (__name__)
 app.secret_key = "segredo123"
 
 @app.route ("/")
-def conexao ():
-    cnx = connection.MySQLConnection (
-        user = "root",
-        password = "gilovers@25",
-        host = "127.0.0.1",
-        database = "DiarioDeHumor"
-    )
-
-    cursor = cnx.cursor (dictionary = True)
-    cursor.execute ("SELECT nome, user, email FROM usuarios")
-    resultado = cursor.fetchall ()
-
-    return render_template ("cadastro.html", banco = resultado)
+def inicio ():
+    return render_template ("inicio.html")
 
 @app.route ("/cadastro")
 def cadastro ():
@@ -26,10 +15,10 @@ def cadastro ():
 
 @app.route ("/salvar", methods = ["POST"])
 def salvar ():
-    nome = request.form.get ("nome")
-    user = request.form.get ("user")
+    name = request.form.get ("name")
+    username = request.form.get ("username")
     email = request.form.get ("email")
-    senha = request.form.get ("senha")
+    password = request.form.get ("password")
 
     cnx = connection.MySQLConnection (
         user = "root",
@@ -40,14 +29,14 @@ def salvar ():
     cursor = cnx.cursor ()
 
     sql = "INSERT INTO usuarios (nome, user, email, senha) VALUES (%s, %s, %s, %s)"
-    valores = (nome, user, email, senha)
+    valores = (name, username, email, password)
     cursor.execute (sql, valores)
 
     cnx.commit ()
     cursor.close ()
     cnx.close ()
 
-    return redirect (url_for ("conexao"))
+    return redirect (url_for ("inicio"))
 
 @app.route ("/login")
 def login ():
@@ -55,8 +44,8 @@ def login ():
 
 @app.route("/entrar", methods=["POST"])
 def entrar():
-    user = request.form.get("user")
-    senha = request.form.get("senha")
+    username = request.form.get("username")
+    password = request.form.get("password")
 
     cnx = connection.MySQLConnection(
         user="root",
@@ -67,7 +56,7 @@ def entrar():
     cursor = cnx.cursor(dictionary=True)
 
     sql = "SELECT * FROM usuarios WHERE user = %s AND senha = %s"
-    valores = (user, senha)
+    valores = (username, password)
     cursor.execute(sql, valores)
     resultado = cursor.fetchone()
 
@@ -77,7 +66,7 @@ def entrar():
     if resultado:  
         session["usuario"] = resultado["user"]  
         flash("Login realizado com sucesso!")
-        return redirect(url_for("conexao"))
+        return redirect(url_for("inicio"))
     else:
         flash("Usuário ou senha incorretos!")
         return redirect(url_for("login"))

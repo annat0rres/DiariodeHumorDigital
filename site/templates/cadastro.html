@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <link rel="stylesheet" href="css/cadastro.css">
+    <link rel="stylesheet" href="{{url_for ('static', filename='css/cadastro.css')}}">
 </head>
 <body>
     <div class="area_geral_cadastro">
@@ -20,7 +20,7 @@
 
         </div>
         <div class="central_cad">
-            <form method="POST" action="/cadastro" class="form_cadastro"> <!-- o forms precisa acessar a rota do flask
+            <form method="POST" action="/salvar" class="form_cadastro"> <!-- o forms precisa acessar a rota do flask
                 para enviar os dados, se não a página vai continuar dando erro, a /cadastro não funciona e não vai dar para entrar na página até mudar-->
                 <h1 class="cad_h1">Cadastro</h1>
                 <br>
@@ -36,12 +36,7 @@
                 <label for="password">Senha:</label>
                 <input type="password" id="password" name="password"  minlength="8" required>
                 <br>
-                <a href="sucesso_cadastro.html"> <!--remover depois, por enquanto deixa ir direto sem a necessidade
-                    do flask porque ainda não foi finalizado a parte do backend funcionando-->
-                    <button class="cadastrar_button" type="button">Cadastrar</button> <!--na verdade é type=submit para enviar os dados, mas
-                    precisa do flask pegando, então tem que ser assim pra desconsiderar a rota que o app.py não ta funcionando como
-                    deveria, ou seja, ta entrando na principal sem recolher os dados e sistema de cadastro já existente ou não-->
-                </a>
+                <button class="cadastrar_button" type="submit">Cadastrar</button> 
             </form>
         </div>
     </div>

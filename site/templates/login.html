@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="{{url_for ('static', filename='css/login.css')}}">
 </head>
 <body>
     <div class="area_geral_login">
@@ -20,7 +20,7 @@
 
         </div>
         <div class="central_log">
-            <form method="POST" action="/login" class="form_login">
+            <form method="POST" action="/entrar" class="form_login">
                 <h1 class="log_h1">Login</h1>
                 <br>
                 <label for="username">Usuário:</label>
@@ -28,9 +28,7 @@
                 <label for="password">Senha:</label>
                 <input type="password" id="password" name="password" required>
                 <br>
-                <a href="principal.html">
-                    <button class="logar_button" type="button">Logar</button>
-                </a>
+                <button class="logar_button" type="submit">Logar</button>
             </form>
         </div>
     </div>

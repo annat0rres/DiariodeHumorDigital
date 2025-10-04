@@ -140,6 +140,7 @@ h2 {
     outline: none;
     transition: background-color 0.2s ;
 }
+
 .link_button_log:hover {
     background-color: #FFF173;
     border-color: #C7B157;

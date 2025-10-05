@@ -41,6 +41,26 @@ def salvar ():
 
     return redirect (url_for ("inicio"))
 
+@app.route ("/principal")
+def principal ():
+    return render_template("principal.html")
+
+@app.route ("/perfil")
+def perfil ():
+    return render_template("perfil.html")
+
+@app.route ("/humor")
+def humor ():
+    return render_template("registro_humor.html")
+
+@app.route ("/semregistro")
+def semregistro ():
+    return render_template("semregistro.html")
+
+@app.route ("/escrever")
+def escrever ():
+    return render_template("escrever.html")
+
 @app.route ("/login")
 def login ():
     return render_template ("login.html")
@@ -70,7 +90,7 @@ def entrar():
     if resultado:  
         session["usuario"] = resultado["username"]  
         flash("Login realizado com sucesso!")
-        return redirect(url_for("inicio"))
+        return redirect(url_for("principal"))
     else:
         flash("Usuário ou senha incorretos!")
         return redirect(url_for("login"))

@@ -3,7 +3,8 @@ from flask import render_template, request, redirect, url_for, session, flash
 import mysql.connector as connection 
 
 app = Flask (__name__)
-app.secret_key = "segredo123"
+app.secret_key = ""
+#Colocar a secret key aqui
 
 @app.route ("/")
 def inicio ():
@@ -21,14 +22,16 @@ def salvar ():
     password = request.form.get ("password")
 
     cnx = connection.MySQLConnection (
-        user = "root",
-        password = "gilovers@25",
+        user = "",
+        password = "",
         host = "127.0.0.1",
         database = "DiarioDeHumor"
     )
     cursor = cnx.cursor ()
+    #Colocar o user e password do banco de dados aqui, criar o usuário caso não exista e baixar e importar o banco de dados no mysql
 
-    sql = "INSERT INTO usuarios (nome, user, email, senha) VALUES (%s, %s, %s, %s)"
+
+    sql = "INSERT INTO usuarios (name, username, email, password) VALUES (%s, %s, %s, %s)"
     valores = (name, username, email, password)
     cursor.execute (sql, valores)
 
@@ -48,14 +51,15 @@ def entrar():
     password = request.form.get("password")
 
     cnx = connection.MySQLConnection(
-        user="root",
-        password="gilovers@25",
+        user="",
+        password="",
         host="127.0.0.1",
         database="DiarioDeHumor"
     )
     cursor = cnx.cursor(dictionary=True)
+    #Colocar o user e password do banco de dados aqui também
 
-    sql = "SELECT * FROM usuarios WHERE user = %s AND senha = %s"
+    sql = "SELECT * FROM usuarios WHERE username = %s AND password = %s"
     valores = (username, password)
     cursor.execute(sql, valores)
     resultado = cursor.fetchone()
@@ -64,7 +68,7 @@ def entrar():
     cnx.close()
 
     if resultado:  
-        session["usuario"] = resultado["user"]  
+        session["usuario"] = resultado["username"]  
         flash("Login realizado com sucesso!")
         return redirect(url_for("inicio"))
     else:

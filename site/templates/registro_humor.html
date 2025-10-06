@@ -3,9 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evolução do humor</title>
+    <title>Registro de humor</title>
+    <link rel="stylesheet" href="{{url_for ('static', filename='css/evo_humor.css') }}">
 </head>
 <body>
-    <h1>Olá, aqui é a eovlução do humor que eu ainda não estilizei</h1>
+    <div class="container">
+        <div class="title_registro_humor">
+            <h2>Relatório de humor</h2>
+        </div>
+        <div class="area_grafic">
+            <div class="cabine_graf1">
+                <h2>Evolução</h2>
+                <h4>Semana</h4>
+                <figure class="fig_grafico">
+                    <img src="{{ url_for('static', filename='img/grafico.png') }}" alt="Gráfico de humor" class="img_grafico">
+                </figure>
+                <h4>Mês</h4>
+                <figure class="fig_grafico">
+                    <img src="{{ url_for('static', filename='img/grafico2.png') }}" alt="Gráfico de humor" class="img_grafico">
+                </figure>
+            </div>
+            <div class="cabine_graf2">
+                <h2>Histórico</h2>
+                <div>
+                    <h4>Registros</h4>
+                    <p>Hoje</p>
+                    <div class="quadrado"></div>
+                    <p>Ontem</p>
+                    <div class="quadrado"></div>
+                </div>
+            </div>
+        </div>
+        <div id="botao_volta_humor">
+                    <a href="{{url_for ('principal')}}" class="link_button_humor">Voltar</a>
+        </div>
+    </div>
+
 </body>
 </html>

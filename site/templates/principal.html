@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Principal</title>
-    <link rel="stylesheet" href="/site/static/css/principal.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/principal.css') }}">
 </head>
 <body>
     <div id="tela">
@@ -19,14 +19,13 @@
             <div id = 'outraspag'>
                 <ul id="listapags">
                     <li>
-                        <a href="{{url_for('perfil')}}">Perfil</a>
+                            <a href="{{url_for('perfil')}}">Perfil</a>
                     </li>
                     <li>
-                        <a href="{{url_for('humor')}}" class="link_button_humor">Evolução de Humor</a>
+                            <a href="{{url_for('humor')}}">Registro de humor</a>
                     </li>
-                    <li>Histórico</li>
                     <li>
-                        <a href="{{url_for('inicio')}}">Voltar</a>
+                            <a href="{{url_for('inicio')}}">Voltar</a>
                     </li>
                 </ul>
             </div>

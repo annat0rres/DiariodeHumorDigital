@@ -4,10 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diário</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='css/escrever.css') }}">
+    <link rel="stylesheet" href="{{url_for ('static', filename='css/escrever.css')}}">
 </head>
 <body>
     <div id="tela">
+        <div id="iconesEmocoes">
+            <h2>Como está se sentindo hoje?</h2>
+            <div id="emojis">
+                <img class='emojiReacao' src="img/Happy.png">
+                 <img class="emojiReacao" src="img/Sad.png">
+                 <img class="emojiReacao" src="img/Angry.png">
+                 <img class="emojiReacao" src="img/Neutral.png">
+            </div>
+            <div id="reacoes">
+                <div class="marcarReacao">
+                    <input type="checkbox" id="eFeliz" name=""/>
+                    <label for="eFeliz">Feliz</label>
+                </div>
+                <div class="marcarReacao">
+                    <input type="checkbox" id="eTriste" name=""/>
+                    <label for="eTriste">Triste</label>
+                </div>
+                <div class="marcarReacao">
+                    <input type="checkbox" id="eIrritado" name=""/>
+                    <label for="eFeliz">Irritado</label>
+                </div>
+                <div class="marcarReacao">
+                    <input type="checkbox" id="eNeutro" name=""/>
+                    <label for="eNeutro">Neutro</label>
+                </div>
+            </div>
+        </div>
         <div id="caixa">
             <h2>Escreva sobre seu dia</h2>
             <div id="texto">
@@ -16,7 +43,7 @@
             <div id="botoesPagEsc">
                 <div>Enviar</div>
                 <div class='VoltarPrincipal'>
-                    <a href="{{url_for('principal')}}" target="_blank">Voltar</a>
+                    <a href="principal.html" target="_blank">Voltar</a>
                 </div>
             </div>
         </div>

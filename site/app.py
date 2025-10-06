@@ -3,7 +3,7 @@ from flask import render_template, request, redirect, url_for, session, flash
 import mysql.connector as connection 
 
 app = Flask (__name__)
-app.secret_key = ""
+app.secret_key = "segredo123"
 #Colocar a secret key aqui
 
 @app.route ("/")
@@ -22,8 +22,8 @@ def salvar ():
     password = request.form.get ("password")
 
     cnx = connection.MySQLConnection (
-        user = "",
-        password = "",
+        user = "root",
+        password = "gilovers@25",
         host = "127.0.0.1",
         database = "DiarioDeHumor"
     )
@@ -71,8 +71,8 @@ def entrar():
     password = request.form.get("password")
 
     cnx = connection.MySQLConnection(
-        user="",
-        password="",
+        user="root",
+        password="gilovers@25",
         host="127.0.0.1",
         database="DiarioDeHumor"
     )

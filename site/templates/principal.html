@@ -4,31 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Principal</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='css/principal.css') }}">
+    <link rel="stylesheet" href="{{url_for ('static', filename='css/principal.css')}}">
 </head>
 <body>
     <div id="tela">
         <div id="perfilside">
             <div id="fotoperfil">
-                <img src="{{url_for('static', filename='img/fotoperfil.png') }}" alt="Foto de Perfil" id="imgperfil">
+                <img src="{{url_for('static', filename='img/fotoperfil.png') }}" id="imgperfil">
                 <h3>Nome</h3>
                 <h5>@username</h5>
             </div>
 
-
             <div id = 'outraspag'>
                 <ul id="listapags">
                     <li>
-                            <a href="{{url_for('perfil')}}">Perfil</a>
+                        <a href="{{url_for('perfil')}}">Perfil</a>
                     </li>
                     <li>
-                            <a href="{{url_for('humor')}}">Registro de humor</a>
+                        <a href="{{url_for('humor')}}" class="link_button_humor">Evolução de Humor</a>
                     </li>
                     <li>
-                            <a href="{{url_for('inicio')}}">Voltar</a>
+                        <a href="historico.html">Histórico</a>
+                    </li>
+                    <li>
+                        <a href="{{url_for('inicio')}}">Voltar</a>
                     </li>
                 </ul>
             </div>
+
 
         </div>
 
@@ -247,7 +250,7 @@
                             </div>
                             <div class="vermais">Ver mais</div>
                         </div>
-                </div> 
+                </div>
 
                 <div id="linha5">
                         <div>
@@ -299,12 +302,15 @@
                                 <h4>01</h4>
                             </div>
                         </div>
-                </div> 
+                </div>
 
                 <div id="btnEscrever">
-                    <a href="{{url_for('escrever')}}" target="_blank" id="write">Escrever</a>
+                    <a href="escrever.html" target="_blank" id="write">Escrever</a>
                 </div>
             </div> <!-- calendario -->
+
+
+
 
         </div>
     </div>

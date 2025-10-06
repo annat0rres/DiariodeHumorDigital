@@ -43,11 +43,79 @@ def salvar ():
 
 @app.route ("/principal")
 def principal ():
-    return render_template("principal.html")
+    if "usuario" in session:
+        name = session ["name"]
+        username = session ["username"]
+        return render_template("principal.html", name=name, username=username)
+    
+    else:
+        flash ("Faça login primeiro!")
+        return redirect (url_for("login"))
 
 @app.route ("/perfil")
 def perfil ():
-    return render_template("perfil.html")
+    if "username" not in session:
+        flash ("Faça login primeiro!")
+        return redirect (url_for ("login"))
+    
+    username = session ["username"]
+
+    cnx = connection.MySQLConnection (
+        user = "root",
+        password = "gilovers@25",
+        host = "127.0.0.1",
+        database = "DiarioDeHumor"
+    )
+
+    cursor = cnx.cursor (dictionary=True)
+    cursor.execute ("SELECT * FROM usuarios WHERE username = %s", (username,))
+    user = cursor.fetchone ()
+    cursor.close ()
+    cnx.close ()
+
+    return render_template (
+        "perfil.html", 
+        name = user ["name"],
+        username = user ["username"],
+        email = user ["email"]
+    )
+
+@app.route ("/atualizar_perfil", methods= ["POST"])
+def atualizar_perfil ():
+    if "username" not in session:
+        flash ("Faça login para alterar o perfil.")
+        return redirect (url_for("login"))
+    
+    username_atual = session ["username"]
+
+    name = request.form.get ("name")
+    username_novo = request.form.get ("username")
+    email = request.form.get ("email")
+    password = request.form.get ("password")
+
+    cnx = connection.MySQLConnection (
+        user = "root",
+        password = "gilovers@25",
+        host = "127.0.0.1",
+        database = "DiarioDeHumor"
+    )
+    cursor = cnx.cursor ()
+
+    sql ="""UPDATE usuarios
+            SET name = %s, username = %s, email = %s, password = %s
+            WHERE username = %s"""
+    
+    valores = (name, username_novo, email, password, username_atual)
+    cursor.execute (sql, valores)
+    cnx.commit ()
+    cursor.close ()
+    cnx.close ()
+
+    session ["name"] = name
+    session ["username"] = username_novo
+
+    flash ("Perfil atualizado!")
+    return redirect (url_for ("perfil"))
 
 @app.route ("/humor")
 def humor ():
@@ -88,9 +156,12 @@ def entrar():
     cnx.close()
 
     if resultado:  
-        session["usuario"] = resultado["username"]  
+        session ["name"] = resultado ["name"]
+        session["username"] = resultado["username"] 
+
         flash("Login realizado com sucesso!")
         return redirect(url_for("principal"))
+
     else:
         flash("Usuário ou senha incorretos!")
         return redirect(url_for("login"))

@@ -11,8 +11,8 @@
         <div id="perfilside">
             <div id="fotoperfil">
                 <img src="{{url_for('static', filename='img/fotoperfil.png') }}" id="imgperfil">
-                <h3>Nome</h3>
-                <h5>@username</h5>
+                <h3>{{name}}</h3>
+                <h5>@{{username}}</h5>
             </div>
 
             <div id = 'outraspag'>
@@ -38,7 +38,7 @@
         <div id="calendarioside">
 
             <div id="bem-vindo">
-                <h1>Seja bem vindo(a), User!</h1>
+                <h1>Seja bem vindo(a), {{name}}!</h1>
                 <h2>Outubro</h2>
             </div>
 

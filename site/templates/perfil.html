@@ -23,33 +23,36 @@
             </div>
             <div id="ConfigInfos">
                 <h3>Mude suas informações aqui</h3>
-                <div id="colChanges">
-                    <div id="col1">
-                        <h5>Nome</h5>
-                        <input>
-                        <h5>Nome de Usuário</h5>
-                    <input>
+
+                <form method="POST" action="{{url_for('atualizar_perfil')}}">
+                    <div id="colChanges">
+                        <div id="col1">
+                            <h5>Nome</h5>
+                            <input type="text" name="name" value="{{name}}">
+                            <h5>Nome de Usuário</h5>
+                            <input type="text" name="username" value="{{username}}">
+                        </div>
+                        <div id="col2">
+                            <h5>E-mail</h5>
+                            <input type="text" name="email" value="{{email}}">
+                            <h5>Senha</h5>
+                            <input type="password" name="password" placeholder="Digite nova senha">
+                        </div>
                     </div>
-                    <div id="col2">
-                        <h5>E-mail</h5>
-                        <input>
-                        <h5>Senha</h5>
-                        <input>
-                    </div>
-                </div>
-                <div id="infosExtra">
-                    <h3>Informações Extras</h3>
-                    <h5>Data de nascimento</h5>
-                    <form>
+
+                    <div id="infosExtra">
+                        <h3>Informações Extras</h3>
+                        <h5>Data de nascimento</h5>
                         <input type="date" id="dataNasc" name="dataNasc" required>
-                    </form>
-                    <h5>Seu apelido favorito</h5>
-                    <input type="text">
-                </div>
-                <div id="btnsAttVol">
-                    <div id="AttPerfil">Atualizar</div>
-                    <a href="{{url_for('principal') }}" id="VoltarPrincipal">Voltar</a>
-                </div>
+                        <h5>Seu apelido favorito</h5>
+                        <input type="text" name="apelido">
+                    </div>
+
+                    <div id="btnsAttVol">
+                        <button type="submit" id="AttPerfil"> Atualizar </button>
+                        <a href="{{url_for('principal') }}" id="VoltarPrincipal">Voltar</a>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

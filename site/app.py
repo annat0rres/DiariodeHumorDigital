@@ -43,7 +43,7 @@ def salvar ():
 
 @app.route ("/principal")
 def principal ():
-    if "usuario" in session:
+    if "username" in session:
         name = session ["name"]
         username = session ["username"]
         return render_template("principal.html", name=name, username=username)
@@ -128,6 +128,35 @@ def semregistro ():
 @app.route ("/escrever")
 def escrever ():
     return render_template("escrever.html")
+
+@app.route ("/registro_escrever", methods = ["POST"])
+def registro_escrever ():
+    if "username" not in session:
+        flash ("Faça login antes de registrar seu humor!")
+        return redirect (url_for ("login"))
+    
+    username = session ["username"]
+    emocao = request.form.get ("emocao")
+    texto = request.form.get ("texto")
+
+    cnx = connection.MySQLConnection (
+        user = "root",
+        password = "gilovers@25",
+        host = "127.0.0.1",
+        database = "DiarioDeHumor"
+    )
+    cursor = cnx.cursor ()
+
+    sql = "INSERT INTO registros (username, emocao, texto) VALUES (%s, %s, %s)"
+    valores = (username, emocao, texto)
+    cursor.execute (sql, valores)
+    cnx.commit ()
+
+    cursor.close ()
+    cnx.close ()
+
+    flash ("Registro salvo!")
+    return redirect (url_for ("principal"))
 
 @app.route ("/login")
 def login ():

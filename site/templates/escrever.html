@@ -8,45 +8,48 @@
 </head>
 <body>
     <div id="tela">
-        <div id="iconesEmocoes">
-            <h2>Como está se sentindo hoje?</h2>
-            <div id="emojis">
-                <img class='emojiReacao' src="img/Happy.png">
-                 <img class="emojiReacao" src="img/Sad.png">
-                 <img class="emojiReacao" src="img/Angry.png">
-                 <img class="emojiReacao" src="img/Neutral.png">
-            </div>
-            <div id="reacoes">
-                <div class="marcarReacao">
-                    <input type="checkbox" id="eFeliz" name=""/>
-                    <label for="eFeliz">Feliz</label>
+        <form method="POST" action="{{url_for ('registro_escrever')}}">
+            <div id="iconesEmocoes">
+                <h2>Como está se sentindo hoje?</h2>
+                <div id="emojis">
+                    <img class='emojiReacao' src="img/Happy.png">
+                    <img class="emojiReacao" src="img/Sad.png">
+                    <img class="emojiReacao" src="img/Angry.png">
+                    <img class="emojiReacao" src="img/Neutral.png">
                 </div>
-                <div class="marcarReacao">
-                    <input type="checkbox" id="eTriste" name=""/>
-                    <label for="eTriste">Triste</label>
-                </div>
-                <div class="marcarReacao">
-                    <input type="checkbox" id="eIrritado" name=""/>
-                    <label for="eFeliz">Irritado</label>
-                </div>
-                <div class="marcarReacao">
-                    <input type="checkbox" id="eNeutro" name=""/>
-                    <label for="eNeutro">Neutro</label>
-                </div>
-            </div>
-        </div>
-        <div id="caixa">
-            <h2>Escreva sobre seu dia</h2>
-            <div id="texto">
-                <textarea id="entradaTexto" placeholder="Digite aqui..." rows="25" cols="100"></textarea>
-            </div>
-            <div id="botoesPagEsc">
-                <div>Enviar</div>
-                <div class='VoltarPrincipal'>
-                    <a href="principal.html" target="_blank">Voltar</a>
+                <div id="reacoes">
+                    <div class="marcarReacao">
+                        <input type="radio" id="feliz" name="emocao" value="Feliz" required>
+                        <label for="feliz">Feliz</label>
+                    </div>
+                    <div class="marcarReacao">
+                        <input type="radio" id="triste" name="emocao" value="Triste">
+                        <label for="triste">Triste</label>
+                    </div>
+                    <div class="marcarReacao">
+                        <input type="radio" id="irritado" name="emocao" value="Irritado">
+                        <label for="irritado">Irritado</label>
+                    </div>
+                    <div class="marcarReacao">
+                        <input type="radio" id="neutro" name="emocao" value="Neutro"/>
+                        <label for="neutro">Neutro</label>
+                    </div>
                 </div>
             </div>
-        </div>
+            
+            <div id="caixa">
+                <h2>Escreva sobre seu dia</h2>
+                <div id="texto">
+                    <textarea id="entradaTexto" name="texto" placeholder="Digite aqui..." rows="25" cols="100" required></textarea>
+                </div>
+                <div id="botoesPagEsc">
+                    <button type="submit"> Enviar </button>
+                    <div class='VoltarPrincipal'>
+                        <a href="{{url_for ('principal')}}">Voltar</a>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
 </body>
 </html>

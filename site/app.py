@@ -119,7 +119,7 @@ def atualizar_perfil ():
 
 @app.route ("/humor")
 def humor ():
-    return render_template("registro_humor.html")
+    return render_template("evolucao_humor.html")
 
 @app.route ("/semregistro")
 def semregistro ():
@@ -157,6 +157,32 @@ def registro_escrever ():
 
     flash ("Registro salvo!")
     return redirect (url_for ("principal"))
+
+@app.route ("/historico")
+def historico ():
+    if "username" not in session:
+        flash ("Faça login primeiro!")
+        return redirect (url_for("login"))
+    
+    username = session ["username"]
+    
+    cnx = connection.MySQLConnection (
+        user = "root",
+        password = "gilovers@25",
+        host = "127.0.0.1",
+        database = "DiarioDeHumor"
+    )
+    cursor = cnx.cursor (dictionary=True)
+    
+    sql = "SELECT emocao, texto, data_registro FROM registros WHERE username = %s ORDER BY data_registro DESC"
+    cursor.execute(sql, (username,))
+    registros = cursor.fetchall()
+
+    cursor.close()
+    cnx.close()
+
+    return render_template("historico.html", registros=registros)
+
 
 @app.route ("/login")
 def login ():

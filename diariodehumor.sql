@@ -1,8 +1,6 @@
-CREATE DATABASE  IF NOT EXISTS `diariodehumor` /*!40100 DEFAULT CHARACTER SET utf8mb3 */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `diariodehumor`;
 -- MySQL dump 10.13  Distrib 8.0.43, for Win64 (x86_64)
 --
--- Host: localhost    Database: diariodehumor
+-- Host: localhost    Database: diariodehumor2
 -- ------------------------------------------------------
 -- Server version	8.0.43
 
@@ -25,10 +23,11 @@ DROP TABLE IF EXISTS `login`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `login` (
-  `userUsuarios` varchar(30) NOT NULL,
   `password` varchar(8) NOT NULL,
-  PRIMARY KEY (`userUsuarios`,`password`),
-  CONSTRAINT `userUsuarios` FOREIGN KEY (`userUsuarios`) REFERENCES `usuarios` (`username`)
+  `usernameUsuarios` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`password`),
+  KEY `userUsuário_idx` (`usernameUsuarios`),
+  CONSTRAINT `userUsuário` FOREIGN KEY (`usernameUsuarios`) REFERENCES `usuarios` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -42,6 +41,33 @@ LOCK TABLES `login` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `registros`
+--
+
+DROP TABLE IF EXISTS `registros`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `registros` (
+  `usernameUsuarios` varchar(30) DEFAULT NULL,
+  `emocao` longblob,
+  `texto` longtext,
+  `idregistro` int NOT NULL,
+  PRIMARY KEY (`idregistro`),
+  KEY `usernameUsuarios_idx` (`usernameUsuarios`),
+  CONSTRAINT `usernameUsuarios` FOREIGN KEY (`usernameUsuarios`) REFERENCES `usuarios` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `registros`
+--
+
+LOCK TABLES `registros` WRITE;
+/*!40000 ALTER TABLE `registros` DISABLE KEYS */;
+/*!40000 ALTER TABLE `registros` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `usuarios`
 --
 
@@ -49,7 +75,7 @@ DROP TABLE IF EXISTS `usuarios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuarios` (
-  `name` varchar(45) DEFAULT NULL,
+  `name` varchar(30) DEFAULT NULL,
   `username` varchar(30) NOT NULL,
   `email` varchar(45) DEFAULT NULL,
   `password` varchar(8) DEFAULT NULL,
@@ -75,4 +101,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-09-30 21:53:59
+-- Dump completed on 2025-10-07 22:23:44

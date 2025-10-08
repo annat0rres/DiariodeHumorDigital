@@ -1,42 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Histórico</title>
-    <link rel="stylesheet" href="css/historico.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/historico.css') }}">
 </head>
 <body>
     <div id="tela">
         <div id="textos">
-            <img src="img/Nuvem.png" class="img_login1">
-            <img src="img/Nuvem.png" class="img_login2">
+            <img src="{{ url_for('static', filename='img/Nuvem.png') }}" class="img_login1">
+            <img src="{{ url_for('static', filename='img/Nuvem.png') }}" class="img_login2">
             <h1>Histórico</h1>
             <h6>Suas últimas atualizações</h6>
         </div>
+
         <div id="colunasHist">
-            <div id="col1">
-                <h4>Hoje</h4>
-                <div class="notif">
-                    <img class="reacoes" src="img/Happy.png">
-                    <div id="textosNotif">
-                        <h4>Registro - Exemplo</h4>
-                        <h6>Dia DD/MM/AA</h6>
+            {% if registros %}
+                {% for registro in registros %}
+                    <div class="notif">
+                        {% if registro.emocao == "Feliz" %}
+                            <img class="reacoes" src="{{ url_for('static', filename='img/Happy.png') }}">
+                        {% elif registro.emocao == "Triste" %}
+                            <img class="reacoes" src="{{ url_for('static', filename='img/Sad.png') }}">
+                        {% elif registro.emocao == "Irritado" %}
+                            <img class="reacoes" src="{{ url_for('static', filename='img/Angry.png') }}">
+                        {% else %}
+                            <img class="reacoes" src="{{ url_for('static', filename='img/Neutral.png') }}">
+                        {% endif %}
+
+                        <div id="textosNotif">
+                            <h4>{{ registro.texto }}</h4>
+                            <h6>{{ registro.data_registro.strftime('%d/%m/%Y') }}</h6>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div id="col2">
-                <h4>Essa semana</h4>
-                <div class="notif"></div>
-                <div class="notif"></div>
-                <div class="notif"></div>
-            </div>
-            <div id="col3">
-                <h4>Esse mês</h4>
-                <div class="notif"></div>
-                <div class="notif"></div>
-                <div class="notif"></div>
-            </div>
+                {% endfor %}
+            {% else %}
+                <p>Você ainda não tem registros salvos 😢</p>
+            {% endif %}
         </div>
     </div>
 </body>

@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diário</title>
-    <link rel="stylesheet" href="{{url_for ('static', filename='css/escrever.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/escrever.css')}}">
 </head>
 <body>
     <div id="tela">
-        <form method="POST" action="{{url_for ('registro_escrever')}}">
+        <form method="POST" action="{{url_for('registro_escrever')}}">
             <div id="iconesEmocoes">
                 <h2>Como está se sentindo hoje?</h2>
                 <div id="emojis">
-                    <img class='emojiReacao' src="img/Happy.png">
-                    <img class="emojiReacao" src="img/Sad.png">
-                    <img class="emojiReacao" src="img/Angry.png">
-                    <img class="emojiReacao" src="img/Neutral.png">
+                    <img class='emojiReacao' src="{{url_for('static', filename='img/Happy.png')}}">
+                    <img class="emojiReacao" src="{{url_for('static', filename='img/Sad.png')}}">
+                    <img class="emojiReacao" src="{{url_for('static', filename='img/Angry.png')}}">
+                    <img class="emojiReacao" src="{{url_for('static', filename='img/Neutral.png')}}">
                 </div>
                 <div id="reacoes">
                     <div class="marcarReacao">
@@ -45,7 +45,7 @@
                 <div id="botoesPagEsc">
                     <button type="submit"> Enviar </button>
                     <div class='VoltarPrincipal'>
-                        <a href="{{url_for ('principal')}}">Voltar</a>
+                        <a href="{{url_for('principal')}}">Voltar</a>
                     </div>
                 </div>
             </div>

@@ -2,7 +2,7 @@ from flask import Flask
 from flask import render_template, request, redirect, url_for, session, flash
 import mysql.connector as connection 
 
-app = Flask(__name__)
+app = Flask (__name__)
 app.secret_key = "segredo123"
 #Colocar a secret key aqui
 
@@ -23,9 +23,9 @@ def salvar ():
 
     cnx = connection.MySQLConnection (
         user = "root",
-        password = "gilovers@25",
+        password = "labinfo",
         host = "127.0.0.1",
-        database = "DiarioDeHumor"
+        database = "setembroamarelo"
     )
     cursor = cnx.cursor ()
     #Colocar o user e password do banco de dados aqui, criar o usuário caso não exista e baixar e importar o banco de dados no mysql
@@ -62,9 +62,9 @@ def perfil ():
 
     cnx = connection.MySQLConnection (
         user = "root",
-        password = "gilovers@25",
+        password = "labinfo",
         host = "127.0.0.1",
-        database = "DiarioDeHumor"
+        database = "setembroamarelo"
     )
 
     cursor = cnx.cursor (dictionary=True)
@@ -95,9 +95,9 @@ def atualizar_perfil ():
 
     cnx = connection.MySQLConnection (
         user = "root",
-        password = "gilovers@25",
+        password = "labinfo",
         host = "127.0.0.1",
-        database = "DiarioDeHumor"
+        database = "setembroamarelo"
     )
     cursor = cnx.cursor ()
 
@@ -119,7 +119,7 @@ def atualizar_perfil ():
 
 @app.route ("/humor")
 def humor ():
-    return render_template("registro_humor.html")
+    return render_template("evolucao_humor.html")
 
 @app.route ("/semregistro")
 def semregistro ():
@@ -141,9 +141,9 @@ def registro_escrever ():
 
     cnx = connection.MySQLConnection (
         user = "root",
-        password = "gilovers@25",
+        password = "labinfo",
         host = "127.0.0.1",
-        database = "DiarioDeHumor"
+        database = "setembroamarelo"
     )
     cursor = cnx.cursor ()
 
@@ -158,6 +158,32 @@ def registro_escrever ():
     flash ("Registro salvo!")
     return redirect (url_for ("principal"))
 
+@app.route ("/historico")
+def historico ():
+    if "username" not in session:
+        flash ("Faça login primeiro!")
+        return redirect (url_for("login"))
+    
+    username = session ["username"]
+    
+    cnx = connection.MySQLConnection (
+        user = "root",
+        password = "labinfo",
+        host = "127.0.0.1",
+        database = "setembroamarelo"
+    )
+    cursor = cnx.cursor (dictionary=True)
+    
+    sql = "SELECT emocao, texto, data_registro FROM registros WHERE username = %s ORDER BY data_registro DESC"
+    cursor.execute(sql, (username,))
+    registros = cursor.fetchall()
+
+    cursor.close()
+    cnx.close()
+
+    return render_template("historico.html", registros=registros)
+
+
 @app.route ("/login")
 def login ():
     return render_template ("login.html")
@@ -169,9 +195,9 @@ def entrar():
 
     cnx = connection.MySQLConnection(
         user="root",
-        password="gilovers@25",
+        password="labinfo",
         host="127.0.0.1",
-        database="DiarioDeHumor"
+        database="setembroamarelo"
     )
     cursor = cnx.cursor(dictionary=True)
     #Colocar o user e password do banco de dados aqui também

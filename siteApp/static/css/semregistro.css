@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins';
+}
+
+
+#tela{
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(#78B5D4,white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#warning{
+    width: 260px;
+    height: 300px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color:#78B5D4;
+    border-radius: 20px;
+     box-shadow: 0px 5px 10px #b2b8bcec;
+     /* border: 3px solid #78B5D4; */
+    transition-property: background-color, transform;
+    transition-duration: 0.1s, 0.3s;
+    transition-timing-function: ease-in-out, ease-in-out;
+}
+
+
+#txtEemoji{
+    width: 260px;
+    height: 260px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+#warning img{
+    width: 100px;
+    height: 100px;
+}
+
+
+#warning h4{
+    text-align: center;
+}
+
+
+#btnOk{
+    border-top: 2px solid #78B5D4;
+    width: 260px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#btnOk a{
+    text-align: center;
+    color: inherit;  
+    text-decoration: none;
+    cursor: pointer;
+}

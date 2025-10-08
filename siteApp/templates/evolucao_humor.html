@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de humor</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='css/evo_humor.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/evo_humor.css') }}">
 </head>
 <body>
     <div class="container">
         <div class="title_registro_humor">
             <h2>Relatório de humor</h2>
         </div>
+
         <div class="area_grafic">
             <div class="cabine_graf1">
                 <h2>Evolução</h2>
@@ -23,21 +24,38 @@
                     <img src="{{ url_for('static', filename='img/grafico2.png') }}" alt="Gráfico de humor" class="img_grafico">
                 </figure>
             </div>
+
             <div class="cabine_graf2">
                 <h2>Histórico</h2>
-                <div>
-                    <h4>Registros</h4>
-                    <p>Hoje</p>
-                    <div class="quadrado"></div>
-                    <p>Ontem</p>
-                    <div class="quadrado"></div>
-                </div>
+                {% if registros %}
+                    {% for registro in registros %}
+                        <div class="notif">
+                            {% if registro.emocao == "Feliz" %}
+                                <img class="reacoes" src="{{ url_for('static', filename='img/Happy.png') }}">
+                            {% elif registro.emocao == "Triste" %}
+                                <img class="reacoes" src="{{ url_for('static', filename='img/Sad.png') }}">
+                            {% elif registro.emocao == "Irritado" %}
+                                <img class="reacoes" src="{{ url_for('static', filename='img/Angry.png') }}">
+                            {% else %}
+                                <img class="reacoes" src="{{ url_for('static', filename='img/Neutral.png') }}">
+                            {% endif %}
+
+                            <div id="textosNotif">
+                                <h4>{{ registro.texto }}</h4>
+                                <h6>{{ registro.data_registro.strftime('%d/%m/%Y') }}</h6>
+                                <a href="{{ url_for('ver_mais', idregistro=registro.idregistros) }}">Ver mais</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>Você ainda não possui registros 😢</p>
+                {% endif %}
             </div>
         </div>
+
         <div id="botao_volta_humor">
-                    <a href="{{url_for ('principal')}}" class="link_button_humor">Voltar</a>
+            <a href="{{ url_for('principal') }}" class="link_button_humor">Voltar</a>
         </div>
     </div>
-
 </body>
 </html>

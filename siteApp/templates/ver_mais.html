@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/vermais.css')}}">
+</head>
+<body>
+     <div id="tela">
+        <div id="textoEreacao">
+            <div id="textoVerMais">
+                 <h2>Querido, diário...</h2>
+                 <div id="texto">
+                    <div id="data">{{ registro.data_registro.strftime('%d/%m/%Y') }}</div>
+                </div>
+            </div>
+            <div id="reacaoEbtns">
+                <div id="reacaoVerMais">
+                    <h4>Emoção</h4>
+                    <img src="{{ url_for('static', filename='img/' ~ registro.emoji) }}">
+                    <h6>{{ registro.emocao }}</h6>
+                    <p>{{ registro.texto }}</p>
+                </div>
+                <div id="btnsVolEdit">
+                    <div class="EditarEscrever">
+                        <a href="{{ url_for('escrever') }}" target="_blank">Editar</a>
+                    </div>
+                <div class='VoltarPrincipal'>
+                    <a href="{{ url_for('principal') }}" target="_blank">Voltar</a>
+                </div>
+            </div>
+            </div>
+        </div>
+     </div>
+</body>
+</html>

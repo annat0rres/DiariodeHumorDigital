@@ -4,7 +4,7 @@ USE `setembroamarelo`;
 --
 -- Host: localhost    Database: setembroamarelo
 -- ------------------------------------------------------
--- Server version	9.4.0
+-- Server version	8.0.43
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -18,31 +18,6 @@ USE `setembroamarelo`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `login`
---
-
-DROP TABLE IF EXISTS `login`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `login` (
-  `password` varchar(8) NOT NULL,
-  `usernameUsuarios` varchar(30) DEFAULT NULL,
-  PRIMARY KEY (`password`),
-  KEY `userUsuário_idx` (`usernameUsuarios`),
-  CONSTRAINT `userUsuário` FOREIGN KEY (`usernameUsuarios`) REFERENCES `usuarios` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `login`
---
-
-LOCK TABLES `login` WRITE;
-/*!40000 ALTER TABLE `login` DISABLE KEYS */;
-/*!40000 ALTER TABLE `login` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `registros`
 --
 
@@ -50,11 +25,13 @@ DROP TABLE IF EXISTS `registros`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `registros` (
-  `usernameUsuarios` varchar(30) DEFAULT NULL,
-  `emocao` longblob,
+  `usernameUsuarios` varchar(45) DEFAULT NULL,
+  `emocao` varchar(50) DEFAULT NULL,
+  `emoji` varchar(100) DEFAULT NULL,
   `texto` longtext,
-  `idregistro` int NOT NULL,
-  PRIMARY KEY (`idregistro`),
+  `idregistros` int NOT NULL,
+  `data_registro` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`idregistros`),
   KEY `usernameUsuarios_idx` (`usernameUsuarios`),
   CONSTRAINT `usernameUsuarios` FOREIGN KEY (`usernameUsuarios`) REFERENCES `usuarios` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
@@ -77,10 +54,12 @@ DROP TABLE IF EXISTS `usuarios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuarios` (
-  `name` varchar(30) DEFAULT NULL,
-  `username` varchar(30) NOT NULL,
-  `email` varchar(45) DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `username` varchar(45) NOT NULL,
+  `email` varchar(100) DEFAULT NULL,
   `password` varchar(8) DEFAULT NULL,
+  `data_nascimento` date DEFAULT NULL,
+  `apelido` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -91,7 +70,6 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES ('Kauã Angelo','kakau','angelo.kaua@escolar.ifrn.edu.br','kakau207');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -104,4 +82,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-10-08  0:50:50
+-- Dump completed on 2025-10-08  9:37:46

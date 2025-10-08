@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sem registro</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/semregistro.css')}}">
+</head>
+<body>
+    <div id="tela">
+        <div id="warning">
+            <div id="txtEemoji">
+                <h2>Atenção!</h2>
+                <img src="{{url_for('static', filename='img/warning.png')}}">
+                <h4>Não há registro para esse dia.</h4>
+            </div>
+            <div id="btnOk">
+                <a href="{{url_for('principal')}}">Ok</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

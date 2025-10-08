@@ -1,43 +1,43 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Histórico</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/historico.css') }}">
+    <link rel="stylesheet" href="{{url_for ('static', filename='css/historico.css')}}">
 </head>
 <body>
     <div id="tela">
         <div id="textos">
-            <img src="{{ url_for('static', filename='img/Nuvem.png') }}" class="img_login1">
-            <img src="{{ url_for('static', filename='img/Nuvem.png') }}" class="img_login2">
+            <!-- <img src="{{url_for ('static', filename='img/Nuvem.png')}}" class="img_login1">
+            <img src="{{url_for ('static', filename='img/Nuvem.png')}}" class="img_login2"> -->
             <h1>Histórico</h1>
             <h6>Suas últimas atualizações</h6>
         </div>
-
         <div id="colunasHist">
-            {% if registros %}
-                {% for registro in registros %}
-                    <div class="notif">
-                        {% if registro.emocao == "Feliz" %}
-                            <img class="reacoes" src="{{ url_for('static', filename='img/Happy.png') }}">
-                        {% elif registro.emocao == "Triste" %}
-                            <img class="reacoes" src="{{ url_for('static', filename='img/Sad.png') }}">
-                        {% elif registro.emocao == "Irritado" %}
-                            <img class="reacoes" src="{{ url_for('static', filename='img/Angry.png') }}">
-                        {% else %}
-                            <img class="reacoes" src="{{ url_for('static', filename='img/Neutral.png') }}">
-                        {% endif %}
-
-                        <div id="textosNotif">
-                            <h4>{{ registro.texto }}</h4>
-                            <h6>{{ registro.data_registro.strftime('%d/%m/%Y') }}</h6>
-                        </div>
+            <div id="col1">
+                <h4>Hoje</h4>
+                <div class="notif">
+                    <img class="reacoes" src="{{url_for ('static', filename='img/Happy.png')}}">
+                    <div id="textosNotif">
+                        <h4>Querido, diário...</h4>
+                        <h6>08/10/2025</h6>
                     </div>
-                {% endfor %}
-            {% else %}
-                <p>Você ainda não tem registros salvos 😢</p>
-            {% endif %}
+                </div>
+            </div>
+            <div id="col2">
+                <h4>Essa semana</h4>
+                <div class="notif"></div>
+                <div class="notif"></div>
+            </div>
+            <div id="col3">
+                <h4>Esse mês</h4>
+                <div class="notif"></div>
+                <div class="notif"></div>
+            </div>
+        </div>
+        <div id="btnsAttVol">
+            <a href="{{url_for('principal') }}" id="VoltarPrincipal">Voltar</a>
         </div>
     </div>
 </body>

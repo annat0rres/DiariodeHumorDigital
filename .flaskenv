@@ -1,0 +1,2 @@
+FLASK_APP=siteApp.app
+FLASK_ENV=development

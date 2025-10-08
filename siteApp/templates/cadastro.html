@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="{{url_for ('static', filename='css/cadastro.css')}}">
+</head>
+<body>
+    <div class="area_geral_cadastro">
+        <div class="parte_azul_cad">
+            <div class="title_cadastro">
+                <h1>Seja bem-vindo!</h1>
+                <h2>Clique abaixo para voltar</h2>
+                <br>
+                <div id="botao_volta_cad">
+                    <a href="{{url_for('inicio')}}" class="link_button_cad">Voltar</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="central_cad">
+            <form method="POST" action="/salvar" class="form_cadastro"> <!-- o forms precisa acessar a rota do flask
+                para enviar os dados, se não a página vai continuar dando erro, a /cadastro não funciona e não vai dar para entrar na página até mudar-->
+                <h1 class="cad_h1">Cadastro</h1>
+                <br>
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="username">Usuário:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password"  minlength="8" required>
+                <br>
+                <button class="cadastrar_button" type="submit">Cadastrar</button> 
+            </form>
+        </div>
+    </div>
+</body>
+</html>
